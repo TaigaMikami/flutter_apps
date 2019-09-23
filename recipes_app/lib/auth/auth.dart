@@ -29,16 +29,16 @@ class Auth implements BaseAuth{
     await user.sendEmailVerification().then((onValue) => print('Email de verificacion enviado'))
       .catchError((onError) => print('Error de Email de verificacion: $onError'));
 
-    await Firestore.instance.collection('user').document('${user.uid}').setData({
+    await Firestore.instance.collection('users').document('${user.uid}').setData({
       'name': userModel.name,//name
       'telephone': userModel.telephone,//phone
       'email': userModel.email,
       'city': userModel.city,//city
       'address': userModel.address
     })
-      .then((value) => print('Usuario registrado en la bd'))
+      .then((value) => print('User registrado en la bd'))
       .catchError(
-        (onError) => print('Error en registrar el usuario en la bd'));
+        (onError) => print('Error en registrar el user en la bd'));
     return user.uid;
   }
 
@@ -54,8 +54,8 @@ class Auth implements BaseAuth{
 
   Future<FirebaseUser> infoUser() async{
     FirebaseUser user = await _firebaseAuth.currentUser();
-    String userId = user !=null ? user.uid : 'No se pudo recuperar el usuario';
-    print('recuperando usuario + $userId');
+    String userId = user !=null ? user.uid : 'No se pudo recuperar el user';
+    print('recuperando user + $userId');
     return user;
   }
 }

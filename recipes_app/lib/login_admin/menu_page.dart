@@ -97,6 +97,19 @@ class _HomePageState extends State<HomePage> {
               ListTile(
                 onTap: () {
                   Navigator.of(context).pop();
+                  page.myrecipe(id).then((value) {
+                    print(value);
+                    setState(() {
+                      contentPage = value;
+                    });
+                  });
+                },
+                leading: Icon(FontAwesomeIcons.pizzaSlice, color: Color(0xFF4FC3F7),),
+                title: Text('My Recipe', style: TextStyle(color: Color(0xFF4FC3F7)),),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.of(context).pop();
                   _signOut();
                 },
                 leading: Icon(Icons.exit_to_app, color: Color(0xFF4FC3F7),),

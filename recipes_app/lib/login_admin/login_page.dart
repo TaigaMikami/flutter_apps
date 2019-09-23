@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
   void _validarRegistrar() async {
     if (_validarGuardar()) {
       try{
-        User user = User(//model/user_model.dart instance usuario
+        User user = User(//model/user_model.dart instance user
           name: _name,
           city: _itemCity,
           address: _address,
@@ -149,9 +149,6 @@ class _LoginPageState extends State<LoginPage> {
       _formType = FormType.login;
     });
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
