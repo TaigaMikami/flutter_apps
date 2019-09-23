@@ -1,7 +1,0 @@
-abstract class Content {
-
-}
-
-class contentPage implements Content {
-
-}

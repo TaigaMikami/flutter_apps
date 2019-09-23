@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:recipes_app/auth/auth.dart';
 import 'package:recipes_app/login_admin/sliders_page.dart';
+import 'package:recipes_app/login_admin/menu_page.dart';
 
 class RootPage extends StatefulWidget {
 
@@ -52,9 +53,9 @@ class _RootPageState extends State<RootPage> {
         );
         break;
       case AuthStatus.signIn:
-        return IntroScreen(
+        return HomePage(
           auth: widget.auth,
-          onSignIn: _signIn,
+          onSignedOut: _signOut,
         );
         break;
     }
