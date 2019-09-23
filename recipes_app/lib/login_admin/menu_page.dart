@@ -120,6 +120,19 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(Icons.contact_mail, color: Color(0xFF4FC3F7),),
                 title: Text('Admin', style: TextStyle(color: Color(0xFF4FC3F7)),),
               ),
+              ListTile(
+                onTap: () {
+                  Navigator.of(context).pop();
+                  page.maps().then((value) {
+                    print(value);
+                    setState(() {
+                      contentPage = value;
+                    });
+                  });
+                },
+                leading: Icon(FontAwesomeIcons.map, color: Color(0xFF4FC3F7),),
+                title: Text('Maps', style: TextStyle(color: Color(0xFF4FC3F7)),),
+              ),
               Divider(height: 2.0, color: Colors.white,),
               ListTile(
                 onTap: () {
