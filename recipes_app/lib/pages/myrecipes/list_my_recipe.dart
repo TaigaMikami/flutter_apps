@@ -88,6 +88,7 @@ class _ListMyRecipeState extends State<ListMyRecipe> {
 
               return ListView(
                 children: snapshot.data.documents.map((document) {
+                  final image = document["image"]!=null ? NetworkImage(document["image"]) : AssetImage('assets/images/azucar.gif');
                   return Card(
                     elevation: 5.0,
                     child: Row(
@@ -101,7 +102,7 @@ class _ListMyRecipeState extends State<ListMyRecipe> {
                               width: 100,
                               height: 100,
                               placeholder: AssetImage('assets/images/azucar.gif'),
-                              image: NetworkImage(document["image"]),
+                              image: image,
                             ),
                           ),
                         ),
